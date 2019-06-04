@@ -166,13 +166,20 @@ alias kdd='kd get deployments'
 alias kstaging='k config use-context staging.k8s.betterpt.com'
 alias kdev='k config use-context development.k8s.betterpt.com'
 alias kprod='k config use-context production.k8s.betterpt.com'
-alias lc='colorls -lA --sd --gs'
 
 alias git='hub'
 
 alias newts='git clone git@github.com:krzkaczor/ts-boilerplate.git'
 alias proxyon='networksetup -setsocksfirewallproxystate wi-fi on'
 alias proxyoff='networksetup -setsocksfirewallproxystate wi-fi off'
+
+alias bubg='brew update && brew upgrade'
+
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 
 # scripts
 source ~/.functions
@@ -223,12 +230,6 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/damianesteban/.nvm/versions/node/v9.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/damianesteban/.nvm/versions/node/v9.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/damianesteban/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/damianesteban/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/damianesteban/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/damianesteban/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # tabtab source for jiractl package
 # uninstall by removing these lines or running `tabtab uninstall jiractl`
 [[ -f /usr/local/lib/node_modules/@godaddy/jiractl/node_modules/tabtab/.completions/jiractl.zsh ]] && . /usr/local/lib/node_modules/@godaddy/jiractl/node_modules/tabtab/.completions/jiractl.zsh
@@ -241,3 +242,10 @@ export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export KUBECONFIG=$KUBECONFIG:~/.kube/config-development
 export KOPS_STATE_STORE=s3://k8s.betterpt.com
 export NAME=development.k8s.betterpt.com
+export HOMEBREW_GITHUB_API_TOKEN=e314c6b139921ba8f649bdcdefd68dc44a5d8141
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/damianesteban/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/damianesteban/Downloads/google-cloud-sdk 2/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/damianesteban/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/damianesteban/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi
