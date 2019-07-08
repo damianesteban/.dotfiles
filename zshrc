@@ -9,7 +9,7 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 else
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir node_version vcs)
 fi
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status aws root_indicator battery time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status aws kubecontext root_indicator time)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_DELIMITER=..
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B4'
@@ -130,6 +130,7 @@ antigen bundle gradle
 antigen bundle ssh-agent
 antigen bundle tmux
 antigen bundle kubectl
+antigen bundle z
 
 antigen bundle skywind3000/z.lua
 antigen bundle unixorn/autoupdate-antigen.zshplugin
@@ -145,7 +146,6 @@ antigen apply
 eval "$(hub alias -s)"
 
 eval "$(rbenv init -)"
-eval `fnm env`
 
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
@@ -181,12 +181,15 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+alias zr='source ~/.zshrc'
 # scripts
-source ~/.functions
+# source ~/.functions
 
 # recommended by brew doctor
-export PATH="~/.rbenv/shims:$HOME/bin:/usr/local/bin:$HOME/.bin:$HOME/.local/bin:$HOME/src/k8s-node-new/istio-1.0.6/bin:/usr/bin:$HOME/pear/bin:$HOME/.rbenv/shims/ruby:$HOME/.cargo/bin:/usr/local/share/python:/usr/bin/python:/usr/local/share/nmap:/Users/damianesteban/flutter/bin:/Users/damianesteban/.gem/ruby/2.5.0/bin:$PATH"
+export PATH="~/.rubies:$HOME/bin:/usr/local/bin:$HOME/.bin:$HOME/.local/bin:$HOME/src/k8s-node-new/istio-1.0.6/bin:/usr/bin:$HOME/pear/bin:$HOME/.rbenv/shims/ruby:$HOME/.cargo/bin:/usr/local/share/python:/usr/bin/python:/usr/local/share/nmap:/Users/damianesteban/flutter/bin:/Users/damianesteban/.gem/ruby/2.5.0/bin:$PATH"
 export GPG_TTY=$(tty)
+source /usr/local/share/chruby/chruby.sh
+
 eval "$(rbenv init - --no-rehash)"
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/src/go
@@ -199,6 +202,9 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 export AWS_DEFAULT_PROFILE="prod"
 
+export CLOUDFLARE_EMAIL="damian.esteban@gmail.com"
+export CLOUDFLARE_TOKEN="7ef5d8e07e268894676cc942ea971e4343009"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -210,20 +216,15 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/damianesteban/.config/gcloud/appli
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
-export PATH="$PATH:/Users/damianesteban/.microclimate"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 export PATH=$HOME/.deno/bin:$PATH
 export PATH="$HOME/.deno/denoget/bin:$PATH"
-if [[ -f "$(brew --prefix)/opt/mcfly/mcfly.bash" ]]; then
-  source "$(brew --prefix)/opt/mcfly/mcfly.bash"
-fi
+#
 # opam configuration
 test -r /Users/damianesteban/.opam/opam-init/init.zsh && . /Users/damianesteban/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-source $(dirname $(gem which colorls))/tab_complete.sh
 
 
 # tabtab source for slss package
@@ -236,16 +237,22 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 
 export PATH=/Users/damianesteban/.local/bin:$PATH
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
-
+export PATH=$HOME/.kube/config:$PATH
 
 # k8s
-export KUBECONFIG=$KUBECONFIG:~/.kube/config-development
-export KOPS_STATE_STORE=s3://k8s.betterpt.com
-export NAME=development.k8s.betterpt.com
-export HOMEBREW_GITHUB_API_TOKEN=e314c6b139921ba8f649bdcdefd68dc44a5d8141
+# export KUBECONFIG=$KUBECONFIG:~/.kube/config-development
+# export KOPS_STATE_STORE=s3://k8s.betterpt.com
+# export NAME=development.k8s.betterpt.com
+export HOMEBREW_GITHUB_API_TOKEN=54b749640e45304018da4d2b3ddaa57240f1fa69
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
+function acp() {
+  git add .
+  git commit -m "$1"
+  git push
+}
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/damianesteban/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/damianesteban/Downloads/google-cloud-sdk 2/path.zsh.inc'; fi
+if [ -f '/Users/damianesteban/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/damianesteban/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/damianesteban/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/damianesteban/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi
+if [ -f '/Users/damianesteban/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/damianesteban/google-cloud-sdk/completion.zsh.inc'; fi

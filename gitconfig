@@ -1,6 +1,7 @@
 [user]
 	name = Damian Esteban
 	email = damian.esteban@gmail.com
+	signingkey = A736B1EBD9FE0E641F028A6CD1A3EEA0CEBA79AE
 
 [alias]
 
@@ -116,7 +117,7 @@
 
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+	ui = true
 
 [color "branch"]
 
@@ -133,9 +134,12 @@
 
 [color "status"]
 
-	added = yellow
-	changed = green
-	untracked = cyan
+	added = magenta normal
+	changed = blue normal
+	untracked = red normal
+	updated = green normal
+	branch = yellow normal bold
+	header = white normal bold
 
 [commit]
 
@@ -197,3 +201,5 @@
 	required = true
 [credential "https://source.developers.google.com"]
 	helper = gcloud.sh
+[gui]
+	recentrepo = /Users/damianesteban/src/messaround/server-time
