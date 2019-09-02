@@ -126,12 +126,11 @@ antigen bundle aws
 antigen bundle brew
 antigen bundle docker
 antigen bundle git
-antigen bundle gradle
 antigen bundle ssh-agent
 antigen bundle tmux
 antigen bundle kubectl
 antigen bundle z
-
+antigen bundle osx
 antigen bundle skywind3000/z.lua
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle zsh-users/zsh-autosuggestions
@@ -167,6 +166,7 @@ alias kstaging='k config use-context staging.k8s.betterpt.com'
 alias kdev='k config use-context development.k8s.betterpt.com'
 alias kprod='k config use-context production.k8s.betterpt.com'
 
+alias tsbase='echo git clone git@github.com:binxio/cfn-auth0-provider.git'
 alias git='hub'
 
 alias newts='git clone git@github.com:krzkaczor/ts-boilerplate.git'
@@ -204,6 +204,11 @@ export AWS_DEFAULT_PROFILE="prod"
 
 export CLOUDFLARE_EMAIL="damian.esteban@gmail.com"
 export CLOUDFLARE_TOKEN="7ef5d8e07e268894676cc942ea971e4343009"
+
+# Kops config
+export KUBECONFIG=$KUBECONFIG:~/.kube/config
+export KOPS_STATE_STORE=s3://k8s.betterpt.com
+export NAME=development.k8s.betterpt.com
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -256,3 +261,8 @@ if [ -f '/Users/damianesteban/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/d
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/damianesteban/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/damianesteban/google-cloud-sdk/completion.zsh.inc'; fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+‘export PATH=”/Users/damianesteban/.jenv/bin:/Users/damianesteban/google-cloud-sdk/bin:/usr/local/opt/openssl@1.1/bin:/Users/damianesteban/.kube/config:/usr/local/opt/libiconv/bin:/Users/damianesteban/.local/bin:/Users/damianesteban/.deno/denoget/bin:/Users/damianesteban/.deno/bin:/usr/local/sbin:/Users/damianesteban/.yarn/bin:/Users/damianesteban/.config/yarn/global/node_modules/.bin:/Users/damianesteban/.nvm/versions/node/v10.16.0/bin:/Users/damianesteban/.rbenv/shims:~/.rubies:/Users/damianesteban/bin:/usr/local/bin:/Users/damianesteban/.bin:/Users/damianesteban/.local/bin:/Users/damianesteban/src/k8s-node-new/istio-1.0.6/bin:/usr/bin:/Users/damianesteban/pear/bin:/Users/damianesteban/.rbenv/shims/ruby:/Users/damianesteban/.cargo/bin:/usr/local/share/python:/usr/bin/python:/usr/local/share/nmap:/Users/damianesteban/flutter/bin:/Users/damianesteban/.gem/ruby/2.5.0/bin:/Users/damianesteban/.rbenv/shims:/Users/damianesteban/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/lib:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/aws:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/brew:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/ssh-agent:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/kubectl:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/z:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/osx:/Users/damianesteban/.antigen/bundles/skywind3000/z.lua:/Users/damianesteban/.antigen/bundles/unixorn/autoupdate-antigen.zshplugin:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-autosuggestions:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-completions:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-history-substring-search:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-syntax-highlighting:/Users/damianesteban/.antigen/bundles/caarlos0/zsh-git-sync:/usr/local/opt/go/libexec/bin:/Users/damianesteban/src/go/bin:/Users/damianesteban/.pulumi/bin”’
+‘eval “export PATH="/Users/damianesteban/.jenv/shims:${PATH}" export JENV_SHELL=zsh export JENV_LOADED=1 unset JAVA_HOME source '/usr/local/Cellar/jenv/0.5.2/libexec/libexec/../completions/jenv.zsh' jenv rehash 2>/dev/null jenv() { typeset command command="$1" if [ "$#" -gt 0 ]; then shift fi case "$command" in enable-plugin|rehash|shell|shell-options) eval `jenv "sh-$command" "$@"`;; *) command jenv "$command" "$@";; esac }”’
