@@ -4,6 +4,6 @@
     ~/.bash_profile: bash_profile
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
-    ~/.tmux/.tmux.conf: tmux
+    ~/.tmux.conf.local: tmux
 
 

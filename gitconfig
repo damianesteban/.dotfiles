@@ -112,6 +112,7 @@
 	# Speed up commands involving untracked files such as `git status`.
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
+	editor = code --wait
 
 [color]
 
@@ -163,12 +164,12 @@
 
 [merge]
   log = true
-  tool = vscode
+	tool = code
 
 [mergetool "vscode"]
     cmd = code --wait $MERGED
 [diff]
-    tool = vscode
+	tool = bbdiff
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [push]
@@ -208,3 +209,9 @@
 	helper = gcloud.sh
 [gui]
 	recentrepo = /Users/damianesteban/src/messaround/server-time
+[difftool "bbdiff"]
+	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool "bbdiff"]
+	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"

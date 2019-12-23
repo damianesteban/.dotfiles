@@ -1,131 +1,70 @@
-export TERM="xterm-256color"
-POWERLEVEL9K_MODE='nerdfont-complete'
-source  ~/powerlevel9k/powerlevel9k.zsh-theme
-
-
-# Prompts
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir nvm node_version vcs)
-else
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir node_version vcs)
-fi
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status aws kubecontext root_indicator time)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_DELIMITER=..
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B4'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B6'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰\uF460\uF460\uF460 "
-
-# Custom segment "now playing"
-# POWERLEVEL9K_CUSTOM_NOW_PLAYING='~/.dotfiles/bin/nowplaying'
-
-# Colors
-POWERLEVEL9K_NODE_VERSION_BACKGROUND=107
-POWERLEVEL9K_NODE_VERSION_FOREGROUND='white'
-# POWERLEVEL9K_CUSTOM_NOW_PLAYING_BACKGROUND='blue'
-# POWERLEVEL9K_CUSTOM_NOW_PLAYING_FOREGROUND='black'
-POWERLEVEL9K_OS_ICON_BACKGROUND='white'
-POWERLEVEL9K_OS_ICON_FOREGROUND='black'
-POWERLEVEL9K_TIME_BACKGROUND='white'
-POWERLEVEL9K_TIME_FOREGROUND='black'
-
-# Battery colors
-POWERLEVEL9K_BATTERY_CHARGING='107'
-POWERLEVEL9K_BATTERY_CHARGED='blue'
-POWERLEVEL9K_BATTERY_LOW_THRESHOLD='50'
-POWERLEVEL9K_BATTERY_LOW_COLOR='red'
-POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='blue'
-POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='white'
-POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='107'
-POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='white'
-POWERLEVEL9K_BATTERY_LOW_BACKGROUND='red'
-POWERLEVEL9K_BATTERY_LOW_FOREGROUND='white'
-POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='white'
-POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='214'
-
-# VCS colors
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND='cyan'
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='white'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='red'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
-
-# Customise the Powerlevel9k prompts
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-#   custom_medium dir vcs newline status
-# )
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-# # Add the custom Medium M icon prompt segment
-# POWERLEVEL9K_CUSTOM_MEDIUM="echo -n $'\uF859'"
-# POWERLEVEL9K_CUSTOM_MEDIUM_FOREGROUND="black"
-# POWERLEVEL9K_CUSTOM_MEDIUM_BACKGROUND="white"
-# POWERLEVEL9K_MODE='awesome-patched'
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(nvm node_version status)
-
-# POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-# POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-# POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
-
-
+# export TERM="xterm-256color"
 # POWERLEVEL9K_MODE='nerdfont-complete'
-# ZSH_THEME="powerlevel9k/powerlevel9k"
+# source  ~/powerlevel9k/powerlevel9k.zsh-theme
 
-# POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-# POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 
+# # Prompts
+# if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+#   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir nvm node_version vcs)
+# else
+#   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir node_version vcs)
+# fi
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status aws kubecontext root_indicator time)
 # POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-# POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="000"
-# POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="007"
-# # POWERLEVEL9K_DIR_HOME_BACKGROUND="001"
-# # POWERLEVEL9K_DIR_HOME_FOREGROUND="000"
-# # POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="001"
-# # POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="000"
-# POWERLEVEL9K_NODE_VERSION_BACKGROUND="black"
-# POWERLEVEL9K_NODE_VERSION_FOREGROUND="007"
-# POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_COLOR="002"
-# POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="black"
-# POWERLEVEL9K_LOAD_WARNING_BACKGROUND="black"
-# POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="black"
-# POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="007"
-# POWERLEVEL9K_LOAD_WARNING_FOREGROUND="007"
-# POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="007"
-# POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
-# POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
-# POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
-# POWERLEVEL9K_RAM_BACKGROUND="black"
-# POWERLEVEL9K_RAM_FOREGROUND="007"
-# POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_COLOR="001"
-# POWERLEVEL9K_RAM_ELEMENTS=(ram_free)
-# POWERLEVEL9K_TIME_BACKGROUND="black"
-# POWERLEVEL9K_TIME_FOREGROUND="007"
-# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M} %F{003}\uF017"
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('os_icon' 'dir' 'vcs')
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('node_version' 'load' 'ram_joined' 'time')
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0B0'
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0B2'
+# POWERLEVEL9K_SHORTEN_DELIMITER=..
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B4'
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B6'
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭"
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰\uF460\uF460\uF460 "
+
+# # Custom segment "now playing"
+# # POWERLEVEL9K_CUSTOM_NOW_PLAYING='~/.dotfiles/bin/nowplaying'
+
+# # Colors
+# POWERLEVEL9K_NODE_VERSION_BACKGROUND=107
+# POWERLEVEL9K_NODE_VERSION_FOREGROUND='white'
+# # POWERLEVEL9K_CUSTOM_NOW_PLAYING_BACKGROUND='blue'
+# # POWERLEVEL9K_CUSTOM_NOW_PLAYING_FOREGROUND='black'
+# POWERLEVEL9K_OS_ICON_BACKGROUND='white'
+# POWERLEVEL9K_OS_ICON_FOREGROUND='black'
+# POWERLEVEL9K_TIME_BACKGROUND='white'
+# POWERLEVEL9K_TIME_FOREGROUND='black'
+
+# # Battery colors
+# POWERLEVEL9K_BATTERY_CHARGING='107'
+# POWERLEVEL9K_BATTERY_CHARGED='blue'
+# POWERLEVEL9K_BATTERY_LOW_THRESHOLD='50'
+# POWERLEVEL9K_BATTERY_LOW_COLOR='red'
+# POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='blue'
+# POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='white'
+# POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='107'
+# POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='white'
+# POWERLEVEL9K_BATTERY_LOW_BACKGROUND='red'
+# POWERLEVEL9K_BATTERY_LOW_FOREGROUND='white'
+# POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='white'
+# POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='214'
+
+# # VCS colors
+# POWERLEVEL9K_VCS_CLEAN_FOREGROUND='cyan'
+# POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
+# POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='white'
+# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='red'
+# POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
+# POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
+
 source $HOME/antigen.zsh
-# Antigen
-# source ~/.antigen/antigen/antigen.zsh
+
+eval "$(starship init zsh)"
 
 antigen use oh-my-zsh
-
+antigen bundle sorin-ionescu/prezto modules/git
 antigen bundle aws
 antigen bundle brew
 antigen bundle docker
-antigen bundle git
+# antigen bundle git
 antigen bundle ssh-agent
 antigen bundle tmux
 antigen bundle kubectl
@@ -138,15 +77,12 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle caarlos0/zsh-git-sync
-# antigen theme bhilburn/powerlevel9k powerlevel9k
 
 antigen apply
 
 eval "$(hub alias -s)"
 
-eval "$(rbenv init -)"
-
-fpath=(~/.zsh/completions $fpath) 
+fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
 # aliases
@@ -189,11 +125,10 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 # source ~/.functions
 
 # recommended by brew doctor
-export PATH="~/.rubies:$HOME/bin:/usr/local/bin:$HOME/.bin:$HOME/.local/bin:$HOME/src/k8s-node-new/istio-1.0.6/bin:/usr/bin:$HOME/pear/bin:$HOME/.rbenv/shims/ruby:$HOME/.cargo/bin:/usr/local/share/python:/usr/bin/python:/usr/local/share/nmap:/Users/damianesteban/flutter/bin:/Users/damianesteban/.gem/ruby/2.5.0/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$HOME/.bin:$HOME/.local/bin:$HOME/src/k8s-node-new/istio-1.0.6/bin:/usr/bin:$HOME/pear/bin:$HOME/.rbenv/shims/ruby:$HOME/.cargo/bin:/usr/local/share/python:/usr/bin/python:/usr/local/share/nmap:/Users/damianesteban/flutter/bin:/Users/damianesteban/.gem/ruby/2.6.3/bin:$PATH"
 export GPG_TTY=$(tty)
 source /usr/local/share/chruby/chruby.sh
 
-eval "$(rbenv init - --no-rehash)"
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/src/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -212,9 +147,8 @@ export KUBECONFIG=$KUBECONFIG:~/.kube/config
 export KOPS_STATE_STORE=s3://k8s.betterpt.com
 export NAME=development.k8s.betterpt.com
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 # add Pulumi to the PATH
@@ -266,8 +200,12 @@ if [ -f '/Users/damianesteban/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-‘export PATH=”/Users/damianesteban/.jenv/bin:/Users/damianesteban/google-cloud-sdk/bin:/usr/local/opt/openssl@1.1/bin:/Users/damianesteban/.kube/config:/usr/local/opt/libiconv/bin:/Users/damianesteban/.local/bin:/Users/damianesteban/.deno/denoget/bin:/Users/damianesteban/.deno/bin:/usr/local/sbin:/Users/damianesteban/.yarn/bin:/Users/damianesteban/.config/yarn/global/node_modules/.bin:/Users/damianesteban/.nvm/versions/node/v10.16.0/bin:/Users/damianesteban/.rbenv/shims:~/.rubies:/Users/damianesteban/bin:/usr/local/bin:/Users/damianesteban/.bin:/Users/damianesteban/.local/bin:/Users/damianesteban/src/k8s-node-new/istio-1.0.6/bin:/usr/bin:/Users/damianesteban/pear/bin:/Users/damianesteban/.rbenv/shims/ruby:/Users/damianesteban/.cargo/bin:/usr/local/share/python:/usr/bin/python:/usr/local/share/nmap:/Users/damianesteban/flutter/bin:/Users/damianesteban/.gem/ruby/2.5.0/bin:/Users/damianesteban/.rbenv/shims:/Users/damianesteban/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/lib:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/aws:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/brew:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/ssh-agent:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/kubectl:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/z:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/osx:/Users/damianesteban/.antigen/bundles/skywind3000/z.lua:/Users/damianesteban/.antigen/bundles/unixorn/autoupdate-antigen.zshplugin:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-autosuggestions:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-completions:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-history-substring-search:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-syntax-highlighting:/Users/damianesteban/.antigen/bundles/caarlos0/zsh-git-sync:/usr/local/opt/go/libexec/bin:/Users/damianesteban/src/go/bin:/Users/damianesteban/.pulumi/bin”’
+export PATH=”/Users/damianesteban/.jenv/bin:/Users/damianesteban/google-cloud-sdk/bin:/usr/local/opt/openssl@1.1/bin:/Users/damianesteban/.kube/config:/usr/local/opt/libiconv/bin:/Users/damianesteban/.local/bin:/Users/damianesteban/.deno/denoget/bin:/Users/damianesteban/.deno/bin:/usr/local/sbin:/Users/damianesteban/.yarn/bin:/Users/damianesteban/.config/yarn/global/node_modules/.bin:/Users/damianesteban/.nvm/versions/node/v10.16.0/bin:/Users/damianesteban/.rbenv/shims:~/.rubies:/Users/damianesteban/bin:/usr/local/bin:/Users/damianesteban/.bin:/Users/damianesteban/.local/bin:/Users/damianesteban/src/k8s-node-new/istio-1.0.6/bin:/usr/bin:/Users/damianesteban/pear/bin:/Users/damianesteban/.rbenv/shims/ruby:/Users/damianesteban/.cargo/bin:/usr/local/share/python:/usr/bin/python:/usr/local/share/nmap:/Users/damianesteban/flutter/bin:/Users/damianesteban/.gem/ruby/2.5.0/bin:/Users/damianesteban/.rbenv/shims:/Users/damianesteban/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/lib:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/aws:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/brew:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/ssh-agent:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/kubectl:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/z:/Users/damianesteban/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/osx:/Users/damianesteban/.antigen/bundles/skywind3000/z.lua:/Users/damianesteban/.antigen/bundles/unixorn/autoupdate-antigen.zshplugin:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-autosuggestions:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-completions:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-history-substring-search:/Users/damianesteban/.antigen/bundles/zsh-users/zsh-syntax-highlighting:/Users/damianesteban/.antigen/bundles/caarlos0/zsh-git-sync:/usr/local/opt/go/libexec/bin:/Users/damianesteban/src/go/bin:/Users/damianesteban/.pulumi/bin:/Users/damianesteban/sonar-scanner/bin:$HOME/.cargo/bin:/Users/damianesteban/Downloads/sonar-scanner-4.0.0.1744-macosx/bin”
+
 ‘eval “export PATH="/Users/damianesteban/.jenv/shims:${PATH}" export JENV_SHELL=zsh export JENV_LOADED=1 unset JAVA_HOME source '/usr/local/Cellar/jenv/0.5.2/libexec/libexec/../completions/jenv.zsh' jenv rehash 2>/dev/null jenv() { typeset command command="$1" if [ "$#" -gt 0 ]; then shift fi case "$command" in enable-plugin|rehash|shell|shell-options) eval `jenv "sh-$command" "$@"`;; *) command jenv "$command" "$@";; esac }”’
+"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
